@@ -1,0 +1,21 @@
+// Small script for footer year, mobile nav toggle and form demo
+document.addEventListener('DOMContentLoaded', ()=>{
+  const yearEls = [document.getElementById('year'), document.getElementById('year2'), document.getElementById('year3'), document.getElementById('year4')];
+  yearEls.forEach(el=>{ if(el) el.textContent = (new Date()).getFullYear(); });
+
+  const navToggle = document.getElementById('navToggle');
+  const siteNav = document.getElementById('siteNav');
+  if(navToggle && siteNav){
+    navToggle.addEventListener('click', ()=> siteNav.classList.toggle('show'));
+  }
+
+  const form = document.getElementById('contactForm');
+  if(form){
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      // Simple local demo — change to real endpoint or email service in production
+      alert('Thanks! Your message has been recorded locally. Replace this with a real backend or a service like Formspree/Netlify Forms.');
+      form.reset();
+    });
+  }
+});
